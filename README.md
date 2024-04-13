@@ -1,2 +1,2 @@
 # kenbai-ki
-ULA DHCPv6 Server
+ULA DHCPv6(maybe SLAAC) Server
