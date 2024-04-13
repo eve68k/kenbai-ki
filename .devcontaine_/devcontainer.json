@@ -1,0 +1,9 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+	"name": "Go",
+	"dockerComposeFile": "compose.yaml",
+	"service": "main",
+	"workspaceFolder": "/workspace",
+	"initializeCommand": "if ! docker network ls | awk '{ print $2 }' | grep -qx 'v6'; then docker network create v6 --ipv6; fi"
+}

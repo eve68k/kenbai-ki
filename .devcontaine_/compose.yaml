@@ -1,0 +1,24 @@
+version: '3'
+services:
+  main:
+    image: mcr.microsoft.com/devcontainers/go:1-1.22-bookworm
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    networks:
+      - v6
+
+  client:
+    image: debian:12.5
+    command: sleep infinity
+    networks:
+      - v6
+
+networks:
+  v6:
+    enable_ipv6: true
+    external: true
+    ipam:
+      config:
+        - subnet: fdca:dead:cafe:ace::/80 # 好きなprefix。最低限/112があれば良いはずです。
+          gateway: fdca:dead:cafe:ace::1 # ホスト側につくアドレス
